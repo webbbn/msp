@@ -83,9 +83,9 @@ endif()
 
 #install(TARGETS msp msp_msg_print msp_fcu mspclient
 install(TARGETS msp_fcu mspclient
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib)
-install(DIRECTORY ${MSP_INCLUDE_DIR} DESTINATION include/ FILES_MATCHING PATTERN "*.hpp")
+    LIBRARY DESTINATION usr/lib
+    ARCHIVE DESTINATION usr/lib)
+install(DIRECTORY ${MSP_INCLUDE_DIR} DESTINATION usr/include/ FILES_MATCHING PATTERN "*.hpp")
 
 SET(PKG_CONFIG_LIBDIR       "\${prefix}/lib" )
 SET(PKG_CONFIG_INCLUDEDIR   "\${prefix}/include/" )
@@ -97,7 +97,7 @@ CONFIGURE_FILE(
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
 )
 
-INSTALL(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc"
+INSTALL(FILES "${CMAKE_BINARY_DIR}/modules/${PROJECT_NAME}/${PROJECT_NAME}.pc"
         DESTINATION lib/pkgconfig)
 
 
